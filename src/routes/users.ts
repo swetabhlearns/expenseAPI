@@ -1,6 +1,6 @@
 import type { FastifyPluginAsync } from "fastify";
 import { getCurrentUserByEmail } from "../services/userService.js";
-import type { AuthUserResponse } from "../../../shared/contracts/domain.js";
+import type { AuthUserResponse } from "../contracts/domain.js";
 import { UserModel } from "../models/user.js";
 
 const userRoutes: FastifyPluginAsync = async (fastify) => {

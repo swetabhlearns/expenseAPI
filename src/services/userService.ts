@@ -1,5 +1,5 @@
 import { UserModel } from "../models/user.js";
-import type { UserSnapshot } from "../../../shared/contracts/domain.js";
+import type { UserSnapshot } from "../contracts/domain.js";
 
 function normalizeEmail(email: string | undefined): string {
   return (email || "").trim().toLowerCase();

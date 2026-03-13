@@ -3,7 +3,7 @@ import { Types } from "mongoose";
 import { ClaimModel } from "../models/claim.js";
 import { ClaimCycleModel } from "../models/claimCycle.js";
 import { env } from "../config/env.js";
-import type { UserSnapshot } from "../../../shared/contracts/domain.js";
+import type { UserSnapshot } from "../contracts/domain.js";
 
 type EmployeeBucket = "pending" | "action_required" | "accepted" | "rejected";
 type AdminBucket = "pending" | "accepted" | "rejected" | "payments";

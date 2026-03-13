@@ -1,6 +1,6 @@
 import { RoleAuditLogModel } from "../models/roleAuditLog.js";
 import { UserModel } from "../models/user.js";
-import type { UserSnapshot } from "../../../shared/contracts/domain.js";
+import type { UserSnapshot } from "../contracts/domain.js";
 
 const ROLE_NAMES = new Set(["USER", "L1_ADMIN", "L2_ADMIN", "L3_ADMIN", "L4_ADMIN", "ROLE_MANAGER"]);
 
