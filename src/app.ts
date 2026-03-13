@@ -21,6 +21,23 @@ export function buildApp() {
   });
   const allowedOrigins = resolveAllowedOrigins();
 
+  const originIsAllowed = (origin: string) => {
+    if (allowedOrigins.includes(origin)) {
+      return true;
+    }
+
+    for (const allowed of allowedOrigins) {
+      if (!allowed.includes("*")) continue;
+      const escaped = allowed
+        .replace(/[.+?^${}()|[\]\\]/g, "\\$&")
+        .replace(/\*/g, ".*");
+      const pattern = new RegExp(`^${escaped}$`);
+      if (pattern.test(origin)) return true;
+    }
+
+    return false;
+  };
+
   void app.register(cors, {
     origin(origin, callback) {
       if (!origin) {
@@ -28,7 +45,7 @@ export function buildApp() {
         return;
       }
 
-      if (allowedOrigins.includes(origin)) {
+      if (originIsAllowed(origin)) {
         callback(null, true);
         return;
       }
